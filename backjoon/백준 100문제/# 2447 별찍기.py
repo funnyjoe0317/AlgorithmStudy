@@ -1,5 +1,4 @@
 # 2447 별 찍기 - 10
-# https://www.acmicpc.net/problem/2447
 # 문제
 # 크기가 N×N인 패턴은 가로, 세로 길이가 N인 정사각형으로 이루어져 있다. 크기가 3×3인 패턴은 가로, 세로 길이가 3인 정사각형 9개로 이루어져 있고, 크기가 9×9인 패턴은 가로, 세로 길이가 9인 정사각형으로 이루어져 있다.
 
@@ -49,5 +48,41 @@
 import sys
 input= sys.stdin.readline
 
-N = int(input())
-star = [[' ' for _ in range(N)] for _ in range(N)]
+# N = int(input())
+# star = [[' ' for _ in range(N)] for _ in range(N)]
+
+# print(star)
+
+# def star10(x,y,N):
+#     if N == 1:
+#         star[x][y] = '*'
+#         return
+#     div = N//3
+#     for i in range(3):
+#         for j in range(3):
+#             if i == 1 and j == 1:
+#                 continue
+#             star10(x+div*i, y+div*j, div)
+
+# print(star10(0,0,N))
+n = int(input())
+
+def star(l):
+    if l == 3:
+        return ['***','* *','***']
+
+    arr = star(l//3)
+    stars = []
+
+    for i in arr:
+        stars.append(i*3)
+
+    for i in arr:
+        stars.append(i+' '*(l//3)+i)
+
+    for i in arr:
+        stars.append(i*3)
+
+    return stars
+
+print('\n'.join(star(n)))
