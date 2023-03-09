@@ -17,7 +17,5 @@ def solution(cacheSize, cities):
             #     cache.remove(city)
             cache.append(city)
             answer += 5
-            
-            
-    
+
     return answer
